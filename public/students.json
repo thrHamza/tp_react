@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "firstName": "Student",
+    "lastName": "AA",
+    "classe_id": 1
+  },
+  {
+    "id": 1,
+    "firstName": "Student",
+    "lastName": "AB",
+    "classe_id": 1
+  },
+  {
+    "id": 2,
+    "firstName": "Student",
+    "lastName": "AC",
+    "classe_id": 1
+  },
+  {
+    "id": 3,
+    "firstName": "Student",
+    "lastName": "AD",
+    "classe_id": 2
+  },
+  {
+    "id": 4,
+    "firstName": "Student",
+    "lastName": "AE",
+    "classe_id": 2
+  },
+  {
+    "id": 5,
+    "firstName": "Student",
+    "lastName": "AF"
+  },
+  {
+    "id": 6,
+    "firstName": "Student",
+    "lastName": "AG"
+  },
+  {
+    "id": 7,
+    "firstName": "Student",
+    "lastName": "AH"
+  }
+]

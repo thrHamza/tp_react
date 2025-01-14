@@ -1,59 +1,71 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import StudentItem from "./StudentItem";
-import SearchContext from "./SearchContext";
+// import SearchContext from "./SearchContext";
+import { useSelector } from "react-redux";
 
-const students = [
-    {
-        id: 0,
-        firstName: 'Student',
-        lastName: 'AA',
-        classe_id: 1,
-    },
-    {
-        id: 1,
-        firstName: 'Student',
-        lastName: 'AB',
-        classe_id: 1,
-    },
-    {
-        id: 2,
-        firstName: 'Student',
-        lastName: 'AC',
-        classe_id: 1,
-    },
-    {
-        id: 3,
-        firstName: 'Student',
-        lastName: 'AD',
-        classe_id: 2,
-    },
-    {
-        id: 4,
-        firstName: 'Student',
-        lastName: 'AE',
-        classe_id: 2,
-    },
-    {
-        id: 5,
-        firstName: 'Student',
-        lastName: 'AF',
-    },
-    {
-        id: 6,
-        firstName: 'Student',
-        lastName: 'AG',
-    },
-    {
-        id: 7,
-        firstName: 'Student',
-        lastName: 'AH',
-    }
-]
+// const students = [
+//     {
+//         id: 0,
+//         firstName: 'Student',
+//         lastName: 'AA',
+//         classe_id: 1,
+//     },
+//     {
+//         id: 1,
+//         firstName: 'Student',
+//         lastName: 'AB',
+//         classe_id: 1,
+//     },
+//     {
+//         id: 2,
+//         firstName: 'Student',
+//         lastName: 'AC',
+//         classe_id: 1,
+//     },
+//     {
+//         id: 3,
+//         firstName: 'Student',
+//         lastName: 'AD',
+//         classe_id: 2,
+//     },
+//     {
+//         id: 4,
+//         firstName: 'Student',
+//         lastName: 'AE',
+//         classe_id: 2,
+//     },
+//     {
+//         id: 5,
+//         firstName: 'Student',
+//         lastName: 'AF',
+//     },
+//     {
+//         id: 6,
+//         firstName: 'Student',
+//         lastName: 'AG',
+//     },
+//     {
+//         id: 7,
+//         firstName: 'Student',
+//         lastName: 'AH',
+//     }
+// ]
 
 export default function StudentList(){
-    const {search} = useContext(SearchContext)
+    // const {search} = useContext(SearchContext)
+    const search = useSelector((state) => state.search)
     const params = useParams();
+
+    const [students, setStudents] = useState([]);
+    useEffect(() => {
+        // students list from local json
+        fetch('/students.json')
+            .then(res => res.json())
+            .then(data => {
+                setStudents(data);
+            })
+    }, [])
 
     let students_list = students
         .filter(std => (!params.id || params.id == std.classe_id));

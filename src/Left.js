@@ -14,12 +14,18 @@ export default function Left() {
             <h2>Menu Left</h2>
             <div>
                 <div onClick={() => navigate('/')}
-                     style={{ cursor: "pointer", margin: "8px 0" }}>
+                     className="mt-3"
+                     style={{cursor: "pointer"}}>
                     StudentList
                 </div>
-                <div>
-                    <Link to="/classes" style={{ textDecoration: "none", color: "inherit" }}>
+                <div className="mt-3">
+                    <Link to="/classes" style={{textDecoration: "none", color: "inherit"}}>
                         Classes
+                    </Link>
+                </div>
+                <div className="mt-3">
+                    <Link to="/posts" style={{textDecoration: "none", color: "inherit"}}>
+                        posts
                     </Link>
                 </div>
             </div>
