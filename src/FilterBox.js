@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import SearchContext from "./SearchContext";
+
 export default function FilterBox(props) {
+    const {setSearch} = useContext(SearchContext);
+
     return (
       <div className={props.className}>
           <input
@@ -6,7 +11,7 @@ export default function FilterBox(props) {
               placeholder='Type to search...'
               className='form-control'
               autoFocus
-              onChange={(e) => props.onFilter(e.target.value)}
+              onChange={evt => {setSearch(evt.target.value.toLowerCase());}}
           />
       </div>
     );

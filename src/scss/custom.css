@@ -108,7 +108,7 @@ html {
 }
 
 .form-control {
-  width: 100%;
+  width: 50%;
   padding: .5rem;
   margin-bottom: 1rem;
   border-radius: .3rem;
@@ -121,4 +121,5 @@ html {
   color: #000;
   border-radius: .3rem;
   display: flex;
+  margin: .1rem;
 }
